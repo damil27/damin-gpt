@@ -16,26 +16,31 @@ const NavBar = () => {
   }, []);
 
   return (
-    <div className="flex flex-row justify-center items-center gap-12 mt-20">
+    <div className=" text-white text-center ">
       {session?.user ? (
-        <button
-          type="button"
-          onClick={signOut}
-          className="bg-slate-700 text-white px-8 py-4 border rounded-md"
-        >
+        <button type="button" onClick={signOut} className="btn">
           logout
         </button>
       ) : (
         <div>
           {users &&
             Object.values(users).map((user) => (
-              <button
-                type="button"
-                onClick={() => signIn(user.id)}
-                className="bg-slate-700 text-white px-8 py-4 border rounded-md"
-              >
-                Login
-              </button>
+              <div className="flex justify-center items-center gap-4 ">
+                <button
+                  type="button"
+                  onClick={() => signIn(user.id)}
+                  className="btn"
+                >
+                  Login
+                </button>
+                <button
+                  type="button"
+                  onClick={() => signIn(user.id)}
+                  className="btn"
+                >
+                  Sign up
+                </button>
+              </div>
             ))}
         </div>
       )}
